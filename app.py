@@ -11,7 +11,7 @@ trees = pd.read_csv('trees.csv', sep=';')
 
 #Build Front End
 app = Dash(__name__)
-server = app.server
+server=app.server
 app.layout = html.Div([
         'Neighbourhood',
         dcc.Dropdown(
@@ -35,9 +35,9 @@ def create_plot(neighbourhood):
         y=alt.Y('COMMON_NAME:N', axis=alt.Axis(title='Tree Name'),
         sort=alt.EncodingSortField(op='count', order='descending')),
         tooltip='count()'
- # ).transform_filter(
- #   ('datum.count > 10')
-).configure_mark(
+ #   ).transform_filter(
+ #       (datum.count > 10)
+    ).configure_mark(
         opacity=0.6,
         color='pink'
     ).interactive()
